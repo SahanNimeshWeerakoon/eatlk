@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -15,6 +15,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
+    private router: Router,
     private activatedRoute: ActivatedRoute
   ) { }
 
@@ -29,8 +30,10 @@ export class RegisterComponent implements OnInit {
     }
 
     this.authService.register(credentials)
-      .subscribe(data => {
-        console.log(data);
+      .subscribe((data:any) => {
+        if(data.success) {
+          this.router.navigate([`/login/${this.type}`]);
+        }
       });
   }
 

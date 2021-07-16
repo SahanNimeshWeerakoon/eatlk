@@ -11,6 +11,9 @@ import { RegisterComponent } from './register/register.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { UserTypeComponent } from './user-type/user-type.component';
 import { FooterComponent } from './footer/footer.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,9 @@ import { FooterComponent } from './footer/footer.component';
     RegisterComponent,
     HomepageComponent,
     UserTypeComponent,
-    FooterComponent
+    FooterComponent,
+    DashboardComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +33,8 @@ import { FooterComponent } from './footer/footer.component';
     HttpClientModule
   ],
   providers: [
-    ValidateService
+    ValidateService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

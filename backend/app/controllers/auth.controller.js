@@ -27,7 +27,7 @@ exports.register = (req, res) => {
           message:
             err.message || "Some error occurred while creating the user."
         });
-      else res.send(data);
+      else res.json({ success: true });
     });
 };
 
